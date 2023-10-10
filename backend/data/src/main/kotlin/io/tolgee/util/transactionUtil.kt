@@ -1,11 +1,11 @@
 package io.tolgee.util
 
+import jakarta.persistence.OptimisticLockException
 import org.springframework.dao.CannotAcquireLockException
 import org.springframework.transaction.PlatformTransactionManager
 import org.springframework.transaction.TransactionDefinition
 import org.springframework.transaction.TransactionStatus
 import org.springframework.transaction.support.TransactionTemplate
-import javax.persistence.OptimisticLockException
 
 fun <T> executeInNewTransaction(
   transactionManager: PlatformTransactionManager,
