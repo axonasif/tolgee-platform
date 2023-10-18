@@ -23,7 +23,7 @@ import org.springframework.web.client.RestTemplate
 import java.util.*
 
 @Suppress("SpringBootApplicationProperties")
-@SpringBootTest(properties = ["tolgee.ee.check-period-ms=10"])
+@SpringBootTest(properties = ["tolgee.ee.check-period-ms=100"])
 class EeSubscriptionServiceTest : AbstractSpringTest() {
 
   @Autowired
