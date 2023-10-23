@@ -85,15 +85,17 @@ class BatchJobActionService(
               savePointManager.rollbackSavepoint(savepoint)
               // we have rolled back the transaction, so no targets were actually successfull
               lockedExecution.successTargets = listOf()
+              entityManager.clear()
               rollbackActivity()
             }
 
             progressManager.handleProgress(lockedExecution)
-            entityManager.persist(lockedExecution)
+            entityManager.persist(entityManager.merge(lockedExecution))
 
             if (lockedExecution.retry) {
               retryExecution = util.retryExecution
               entityManager.persist(util.retryExecution)
+              entityManager.flush()
             }
 
             logger.debug("Job ${batchJobDto.id}: ✅ Processed chunk ${lockedExecution.id}")
