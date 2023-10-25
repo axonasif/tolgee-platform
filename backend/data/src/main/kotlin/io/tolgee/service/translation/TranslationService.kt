@@ -424,4 +424,10 @@ class TranslationService(
       }.filter { it.state !== TranslationState.DISABLED }
     }
   }
+
+  fun deleteAllByProject(projectId: Long) {
+    translationCommentService.deleteAllByProject(projectId)
+    val allInProject = translationRepository.getAllByProjectId(projectId)
+    translationRepository.deleteAll(allInProject)
+  }
 }
