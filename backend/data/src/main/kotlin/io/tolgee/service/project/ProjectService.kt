@@ -250,6 +250,8 @@ class ProjectService(
         screenshotService.deleteAllByProject(project.id)
       }
 
+      mtServiceConfigService.deleteAllByProjectId(project.id)
+
       traceLogMeasureTime("deleteProject: delete languages") {
         languageService.deleteAllByProject(project.id)
       }
@@ -261,7 +263,6 @@ class ProjectService(
       avatarService.unlinkAvatarFiles(project)
       batchJobService.deleteAllByProjectId(project.id)
       bigMetaService.deleteAllByProjectId(project.id)
-      mtServiceConfigService.deleteAllByProjectId(project.id)
       projectRepository.delete(project)
     }
   }
