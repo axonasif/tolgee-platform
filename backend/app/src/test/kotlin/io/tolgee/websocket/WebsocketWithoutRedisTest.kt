@@ -1,6 +1,5 @@
 package io.tolgee.websocket
 
-import io.tolgee.testing.ContextRecreatingTest
 import org.junit.jupiter.api.TestInstance
 import org.springframework.boot.test.context.SpringBootTest
 
