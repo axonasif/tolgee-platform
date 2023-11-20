@@ -9,7 +9,6 @@ import org.springframework.context.ApplicationContextInitializer
 import org.springframework.context.ConfigurableApplicationContext
 import org.springframework.test.context.ContextConfiguration
 
-@ContextRecreatingTest
 @SpringBootTest(
   properties = [
     "spring.redis.port=56379",
